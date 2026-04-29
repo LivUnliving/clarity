@@ -22,8 +22,9 @@ export function gerarIframePorLink(link) {
 
     // 2. VERIFICAÇÃO DO YOUTUBE
     if (url.includes('youtube.com/watch') || url.includes('youtu.be/')) {
-        // Extrai o ID do vídeo ignorando parâmetros extras
-        const videoId = url.includes('youtu.be/') ? url.split('youtu.be/')[1].split('?')[0] : url.split('v=')[1].split('&')[0]; 
+        
+        // ⚠️ A MUDANÇA ESTÁ AQUI: Usamos a variável 'link' (original) em vez da 'url' (minúscula) para fazer o split e preservar o ID real!
+        const videoId = link.includes('youtu.be/') ? link.split('youtu.be/')[1].split('?')[0] : link.split('v=')[1].split('&')[0]; 
         
         return `<iframe style="border-radius:12px" width="100%" height="315" src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
     }
