@@ -1,0 +1,96 @@
+.tarefas-container {
+    background-color: #0d0d17;
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+    width: 350px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+#lista-tarefas {
+    max-height: 140px;
+    overflow-y: auto; 
+    margin-bottom: 15px;
+    padding-right: 5px;
+}
+
+#lista-tarefas::-webkit-scrollbar {
+    width: 5px;
+}
+#lista-tarefas::-webkit-scrollbar-thumb {
+    background: #4b4b7a;
+    border-radius: 10px;
+}
+
+.tarefa-item {
+    background-color: #16162a;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+.tarefa-item:hover {
+    background-color: #1e1e3d;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #a855f7;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #a855f7;
+}
+
+.texto-tarefa {
+    flex: 1;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+#btn-nova-tarefa {
+    width: 100%;
+    background: transparent;
+    border: 2px dashed #252545;
+    color: #a855f7;
+    padding: 12px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+#btn-nova-tarefa:hover {
+    border-color: #a855f7;
+    background-color: rgba(168, 85, 247, 0.05);
+}
+
+.texto-tarefa:focus {
+    outline: none;
+    background-color: rgba(168, 85, 247, 0.1);
+    color: #d8b4fe;
+    border-radius: 4px;
+}
+
+.texto-tarefa::selection {
+    background-color: #a855f7;
+    color: white;
+}
