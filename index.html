@@ -8,54 +8,74 @@
 </head>
 <body>
 
-    <section id="area-testes">
-        <p>⚙️ Configurações (Simulação do Modal)</p>
-        <form id="form-link">
-            <input type="url" id="urlUsuario" placeholder="Cole o link (Spotify, YT, Apple)" required>
-            <button type="submit">Carregar Música</button>
-        </form>
-    </section>
+    <nav class="cabecalho">
+        <img id="logo" src="../assets/img/logo (1).png" alt="Logo Clarity">
+        <button id="configuracoes" onclick="abrirModal()">⚙️ Configurações</button>
+        <img id="conta" src="../assets/img/user.png" alt="Perfil do Usuário">
+    </nav>
 
-    <section id="container-do-player">
+    <main class="layout-principal">
+        
+        <section class="card pomodoro-card">
+            <div class="modos">
+                <button id="btnFoco" class="modo ativo" onclick="mudarModo('foco')">Pomodoro</button>
+                <button id="btnPausa" onclick="mudarModo('pausa')">Pausa</button>
+            </div>
+            <h1 id="timer">25:00</h1>
+            <button id="btn" onclick="toggleTimer()">Iniciar</button>
         </section>
 
-    <script type="module" src="js/main.js"></script>
+        <div class="coluna-direita">
+            
+            <div class="card tarefas-container">
+                <h2>Tarefas</h2>
+                <div id="lista-tarefas" class="scroll-area"></div>
+                <button id="btn-nova-tarefa">
+                    <span>+</span> Criar nova tarefa
+                </button>
+            </div>
 
-    <div class="tarefas-container">
-        <h2>Tarefas</h2>
-        <div id="lista-tarefas" class="scroll-area"></div>
-        
-        <button id="btn-nova-tarefa">
-            <span>+</span> Criar nova tarefa
-        </button>
-    </div>
-
-    <script src="script.js"></script>
-
-    <nav>
-        <img id="logo" src="../assets/img/logo (1).png">
-        <button id="configuracoes" onclick="abrirModal()">Configurações</button>
-        <img id="conta" src="../assets/img/user.png">
-    </nav>
-        <div class="modos">
-            <button id="btnFoco" class="modo ativo" onclick="mudarModo('foco')">Pomodoro</button>
-            <button id="btnPausa" onclick="mudarModo('pausa')">Pausa</button>
+            <section class="card musica-card" id="container-do-player">
+                <h3>Música</h3>
+            </section>
+            
         </div>
-        <h1 id="timer">25:00</h1>
-        <button id="btn" onclick="toggleTimer()">Iniciar</button>
+    </main>
 
     <dialog id="modal">
         <div class="modal-content">
-            <h2>Timer</h2>
-            <label>Pomodoro</label>
-            <input type="number" id="pomodoroInput" value="25" min="1" max="999">
-            <label>Pausa</label>
-            <input type="number" id="pausaInput" value="5" min="1" max="999">
-            <button onclick="salvar()">Salvar</button>
-            <button onclick="fecharModal()">Fechar</button>
+            <h2>Configurações</h2>
+            
+            <div class="config-secao">
+                <h3>⏳ Ajustar Tempo</h3>
+                <label for="pomodoroInput">Pomodoro:</label>
+                <input type="number" id="pomodoroInput" value="25" min="1" max="999">
+                
+                <label for="pausaInput">Pausa:</label>
+                <input type="number" id="pausaInput" value="5" min="1" max="999">
+                
+                <button onclick="salvar()">Salvar Tempo</button>
+            </div>
+
+            <hr style="margin: 20px 0; border: 1px solid #444;">
+
+            <div class="config-secao">
+                <h3>🎵 Trilha Sonora</h3>
+                <form id="form-link">
+                    <label for="urlUsuario">Link da Playlist ou Vídeo:</label>
+                    <input type="url" id="urlUsuario" placeholder="Cole o link (Spotify, YT, Apple)" required style="width: 100%;">
+                    <button type="submit" style="margin-top: 10px;">Carregar Música</button>
+                </form>
+            </div>
+
+            <button onclick="fecharModal()" style="margin-top: 25px; width: 100%;">Fechar Janela</button>
         </div>    
     </dialog>
-</div>
-<script src="../assets/js/script.js"></script>
+
+    <script src="script.js"></script> 
+    
+    <script src="../assets/js/script.js"></script>
+    
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>

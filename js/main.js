@@ -1,6 +1,6 @@
 // main.js
 import { gerarIframePorLink } from './logic.js';
-import { renderizarPlayer } from './ui.js';
+import { renderizarPlayer } from '../../js/ui.js';
 // Link padrão
 const LINK_PADRAO = "https://open.spotify.com/playlist/3Z8RxqQVHdxyFLt5Ewe1FX?si=7a7b413ffdc04fcf"; 
 
