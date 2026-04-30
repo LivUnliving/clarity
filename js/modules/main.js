@@ -1,7 +1,7 @@
 import { gerarIframePorLink } from './logic.js';
 import { renderizarPlayer } from './ui.js';
 
-const LINK_PADRAO = "https://open.spotify.com/playlist/37i9dQZF1E4yzIYT5qw6EX?si=a14d0feafa614a8d"; 
+const LINK_PADRAO = "https://open.spotify.com/playlist/2rcMRS9fDOnuu5YUTXAcQZ?si=066f70a7a6da4434"; 
 
 let estado = {
     playerAtivo: true,
