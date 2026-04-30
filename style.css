@@ -106,7 +106,10 @@ h2 {
     padding-right: 5px;
 }
 
-#lista-tarefas::-webkit-scrollbar { width: 5px; }
+#lista-tarefas::-webkit-scrollbar { 
+    width: 5px; 
+}
+
 #lista-tarefas::-webkit-scrollbar-thumb {
     background: #4b4b7a;
     border-radius: 10px;
@@ -123,7 +126,9 @@ h2 {
     transition: 0.3s;
 }
 
-.tarefa-item:hover { background-color: #1e1e3d; }
+.tarefa-item:hover { 
+    background-color: #1e1e3d; 
+}
 
 input[type="checkbox"] {
     appearance: none;
@@ -135,7 +140,9 @@ input[type="checkbox"] {
     position: relative;
 }
 
-input[type="checkbox"]:checked { background-color: #a855f7; }
+input[type="checkbox"]:checked {
+     background-color: #a855f7; 
+}
 
 .texto-tarefa {
     flex: 1;
@@ -180,12 +187,15 @@ input[type="checkbox"]:checked { background-color: #a855f7; }
 }
 
 /* =========================================
-   5. O CSS DO MODAL (CAIXA DE CONFIGURAÇÕES)
+   REGRAS DO MODAL (Com Imagem x.png)
    ========================================= */
+
+/* Fundo do modal unificado (usando suas cores escuras) */
 dialog {
-    background-color: #0d0d17;
-    color: white;
-    border: 2px solid #252545;
+    background-color: #efe1fb; /* Sua cor base escura */
+    color: rgb(129, 115, 136);
+    font-weight: bold;
+    border: 2px solid #252545; /* Borda sutil */
     border-radius: 20px;
     padding: 30px;
     width: 90%;
@@ -193,6 +203,7 @@ dialog {
     margin: auto;
     font-family: inherit;
     box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    box-sizing: border-box; /* Garante que o padding não faça a caixa vazar */
 }
 
 /* Fundo escuro atrás do modal aberto */
@@ -200,39 +211,35 @@ dialog::backdrop {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-dialog h2 {
-    color: #a855f7;
-    text-align: center;
-    margin-top: 0;
+/* Transforma o conteúdo do modal numa âncora para o botão X */
+.modal-content {
+    position: relative; 
+    display: flex;
+    flex-direction: column;
 }
 
 .config-secao h3 {
-    font-size: 1rem;
-    color: #d8b4fe;
+    font-size: 25px;
+    color: #110022; /* Seu lilás base */
     margin-bottom: 10px;
-}
-
-dialog label {
-    display: block;
-    margin: 10px 0 5px;
-    font-size: 0.9rem;
 }
 
 dialog input {
     width: 100%;
     padding: 12px;
-    background-color: #16162a;
-    border: 1px solid #4b4b7a;
+    background-color: #d5c3f5; /* Sua cor de item escura */
     border-radius: 10px;
-    color: white;
+    color: rgb(66, 53, 78);
+    font-weight: bold;
     box-sizing: border-box;
+    border: none;
 }
 
-dialog button {
+dialog button.btn-salvar {
     width: 100%;
     padding: 12px;
-    margin-top: 15px;
-    background-color: #a855f7;
+    margin-top: 15px; /* Substituindo style inline */
+    background-color: #a855f7; /* Seu roxo base */
     color: white;
     border: none;
     border-radius: 10px;
@@ -241,6 +248,98 @@ dialog button {
     transition: 0.3s;
 }
 
-dialog button:hover {
+dialog button.btn-salvar:hover {
     background-color: #8b3dd9;
+}
+
+/* =========================================
+   O BOTÃO DE FECHAR (Com imagem x.png)
+   ========================================= */
+
+#btn-fechar-modal {
+    position: absolute;
+    top: -15px; /* Sobe um pouquinho */
+    right: -15px; /* Move para a direita */
+    width: 35px; /* Tamanho exato para ficar quadrado */
+    height: 35px;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none; /* Garante que não tenha borda */
+    cursor: pointer;
+    border-radius: 50%; /* Faz o fundo do hover ser redondinho */
+    transition: background-color 0.3s;
+    
+    display: flex; /* Centraliza a imagem lá dentro */
+    align-items: center;
+    justify-content: center;
+}
+
+#btn-fechar-modal:hover {
+    background-color: rgba(168, 85, 247, 0.1); /* Fundo roxo bem suave no hover, sem mudar sua identidade visual */
+}
+
+/* A Imagem interna (O X real) */
+.icone-fechar {
+    width: 18px; /* Defina o tamanho ideal para o seu ícone */
+    height: 18px;
+    object-fit: contain; /* Garante que a imagem não estique */
+    
+    /* Se a sua imagem x.png for preta, você pode descomentar a linha abaixo para inverter para branco: */
+    /* filter: invert(1); */
+}
+
+/* =========================================
+   ELEMENTOS DE LIMPEZA GERAL
+   ========================================= */
+
+/* A linha divisória que antes tinha CSS no HTML */
+.divisor-modal {
+    margin: 25px 0;
+    border: none;
+    border-top: 1px solid #252545; /* Usa a cor exata da borda do modal */
+}
+
+/* =========================================
+   ALINHAMENTO DOS INPUTS LADO A LADO
+   ========================================= */
+.inputs-lado-a-lado {
+    display: flex;
+    gap: 15px; /* Espaço entre a caixa do Pomodoro e da Pausa */
+    width: 100%;
+}
+
+.input-grupo {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Faz as duas caixas ocuparem exatamente 50% do espaço cada */
+    gap: 5px; /* Espacinho entre a palavra "Pomodoro" e a caixa de digitar */
+}
+
+/* Garante que a palavra "Pomodoro" e "Pausa" fiquem com um tamanho legal */
+dialog label {
+    font-size: 0.9rem;
+    color: rgb(129, 115, 136); /* A mesma cor do seu texto original */
+}
+
+/* =========================================
+   CUSTOMIZAÇÃO DAS SETINHAS NUMÉRICAS
+   ========================================= */
+
+/* Força as setinhas (spinners) a ficarem sempre visíveis e sem fundo */
+dialog input[type="number"]::-webkit-inner-spin-button,
+dialog input[type="number"]::-webkit-outer-spin-button {
+    opacity: 1; /* 100% visível sempre */
+    background: transparent; /* Remove o quadrado de fundo */
+    cursor: pointer;
+    
+    /* DICA: Os navegadores não deixam pintar a setinha com a regra "color". 
+       Para deixá-la lilás, aplicamos um filtro fotográfico que transforma 
+       o cinza padrão no tom de roxo/lilás do seu projeto! */
+    filter: invert(40%) sepia(80%) saturate(3000%) hue-rotate(240deg) brightness(90%);
+}
+
+/* Regra extra para o Firefox exibir as setinhas e respeitar o visual */
+dialog input[type="number"] {
+    -moz-appearance: auto;
 }

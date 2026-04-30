@@ -44,38 +44,40 @@
 
     <dialog id="modal">
         <div class="modal-content">
-            <h2>Configurações</h2>
+            <button id="btn-fechar-modal" onclick="fecharModal()" title="Fechar">
+                <img src="../assets/img/x.png" alt="Fechar" class="icone-fechar">
+            </button>
             
-            <div class="config-secao">
-                <h3>⏳ Ajustar Tempo</h3>
-                <label for="pomodoroInput">Pomodoro:</label>
-                <input type="number" id="pomodoroInput" value="25" min="1" max="999">
-                
-                <label for="pausaInput">Pausa:</label>
-                <input type="number" id="pausaInput" value="5" min="1" max="999">
-                
-                <button onclick="salvar()">Salvar Tempo</button>
+        <div class="config-secao">
+                <h3>Timer</h3>
+                <div class="inputs-lado-a-lado">
+                    <div class="input-grupo">
+                        <label for="pomodoroInput">Pomodoro</label>
+                        <input type="number" id="pomodoroInput" value="25" min="1" max="999">
+                    </div>
+                    <div class="input-grupo">
+                        <label for="pausaInput">Pausa</label>
+                        <input type="number" id="pausaInput" value="5" min="1" max="999">
+                    </div>
+                </div>
+                <button class="btn-salvar" onclick="salvar()">Salvar Tempo</button>
             </div>
 
-            <hr style="margin: 20px 0; border: 1px solid #444;">
+            <hr class="divisor-modal">
 
             <div class="config-secao">
-                <h3>🎵 Trilha Sonora</h3>
+                <h3>Trilha Sonora</h3>
                 <form id="form-link">
-                    <label for="urlUsuario">Link da Playlist ou Vídeo:</label>
-                    <input type="url" id="urlUsuario" placeholder="Cole o link (Spotify, YT, Apple)" required style="width: 100%;">
-                    <button type="submit" style="margin-top: 10px;">Carregar Música</button>
+                    <label for="urlUsuario">Link da Playlist ou Vídeo</label>
+                    <input type="url" id="urlUsuario" placeholder="Cole o link (Spotify, YT, Apple)" required>
+                    <button class="btn-salvar" type="submit">Carregar Música</button>
                 </form>
             </div>
-
-            <button onclick="fecharModal()" style="margin-top: 25px; width: 100%;">Fechar Janela</button>
         </div>    
     </dialog>
 
     <script src="script.js"></script> 
-    
     <script src="../assets/js/script.js"></script>
-    
     <script type="module" src="js/main.js"></script>
 </body>
 </html>
