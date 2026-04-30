@@ -1,0 +1,268 @@
+:root {
+    --bg-deep: #0B001A;
+    --bg-card: #0d0d17;
+    --primary: #16086C;
+    --secondary: #a855f7;
+    --accent: #B298FE;
+    --text-main: #ffffff;
+    --text-dark: #42354e;
+    --transition: 0.3s ease;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+nav {
+    width: 100%;
+    height: 100px;
+    background-color: var(--primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+#logo { width: 234px; height: 40px; object-fit: contain; }
+
+.nav-right { display: flex; align-items: center; gap: 20px; }
+
+#configuracoes {
+    color: var(--text-main);
+    background-color: #0B004D;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: var(--transition);
+}
+
+#configuracoes:hover { background-color: var(--secondary); }
+
+#conta { width: 50px; height: 50px; cursor: pointer; border-radius: 50%; }
+
+.layout-principal {
+    display: grid;
+    grid-template-columns: 4fr 6fr;
+    gap: 30px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.coluna-direita { display: flex; flex-direction: column; gap: 20px; }
+
+.pomodoro-card, .musica-card, .tarefas-container {
+    background-color: var(--bg-card);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.pomodoro-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
+}
+
+.botoes-topo {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.btn-tipo {
+    all: unset;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 45px !important;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: var(--transition);
+}
+
+.btn-tipo.ativo { background-color: var(--primary) !important; opacity: 1 !important; }
+.btn-tipo:not(.ativo) { background-color: transparent !important; opacity: 0.5 !important; }
+
+#timer {
+    font-size: 9rem !important;
+    font-weight: 900;
+    margin: 40px 0 !important;
+    text-align: center;
+    line-height: 1;
+}
+
+#btn-play {
+    all: unset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 400px;
+    background-color: var(--accent) !important;
+    color: #0d0d17 !important;
+    padding: 28px 0 !important;
+    border-radius: 25px;
+    font-size: 2.2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 30px auto;
+    transition: var(--transition);
+}
+
+#btn-play:hover { background-color: var(--secondary) !important; color: white !important; }
+
+#lista-tarefas {
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 10px;
+    margin-bottom: 15px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) var(--bg-card);
+}
+
+/* Scrollbar Custom */
+#lista-tarefas::-webkit-scrollbar { width: 8px; }
+#lista-tarefas::-webkit-scrollbar-track { background: var(--bg-card); border-radius: 10px; }
+#lista-tarefas::-webkit-scrollbar-thumb { 
+    background: var(--primary); 
+    border-radius: 10px; 
+    border: 2px solid var(--bg-card); 
+}
+
+.tarefa-item {
+    background-color: #16162a;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+
+.tarefa-item:hover { border-color: var(--secondary); background-color: #1e1e3d; }
+
+.check-concluir {
+    appearance: none;
+    width: 22px; height: 22px;
+    border: 2px solid var(--secondary);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.check-concluir:checked {
+    background: var(--secondary) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E") no-repeat center;
+    background-size: contain;
+}
+
+#btn-nova-tarefa {
+    all: unset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 15px;
+    padding: 15px;
+    border: 2px dashed var(--primary);
+    border-radius: 15px;
+    color: var(--accent);
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+    box-sizing: border-box;
+}
+
+dialog {
+    background-color: #efe1fb;
+    border: none;
+    border-radius: 20px;
+    padding: 35px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+dialog::backdrop { background-color: rgba(0, 0, 0, 0.7); }
+
+#btn-fechar-modal {
+    position: absolute; top: -10px; right: -10px;
+    background: transparent; border: none; cursor: pointer;
+}
+
+.icone-fechar { width: 20px; height: 20px; object-fit: contain; }
+
+dialog input {
+    width: 100%;
+    padding: 12px;
+    border: 1.5px solid #d5c3f5;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.btn-salvar {
+    width: 100%;
+    background-color: var(--secondary);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+#btn-fechar-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+    line-height: 0;
+}
+
+.icone-fechar {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    opacity: 0.7;
+    transition: var(--transition);
+}
+
+#btn-fechar-modal:hover .icone-fechar {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+dialog {
+    overflow: visible;
+    background-color: #efe1fb;
+    border: none;
+    border-radius: 20px;
+    padding: 35px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
