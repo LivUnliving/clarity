@@ -99,9 +99,9 @@ nav {
 .btn-tipo:not(.ativo) { background-color: transparent !important; opacity: 0.5 !important; }
 
 #timer {
-    font-size: 9rem !important;
+    font-size: 130px;
     font-weight: 900;
-    margin: 40px 0 !important;
+    margin: 40px 0;
     text-align: center;
     line-height: 1;
 }

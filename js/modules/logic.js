@@ -22,11 +22,5 @@ export function gerarIframePorLink(link) {
         return `<iframe style="border-radius:12px" width="100%" height="315" src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
     }
 
-    if (url.includes('music.apple.com')) {
-        const linkEmbed = url.replace('music.apple.com', 'embed.music.apple.com');
-        
-        return `<iframe style="border-radius:12px" src="${linkEmbed}" width="100%" height="150" frameBorder="0" allow="autoplay *; encrypted-media *; fullscreen *" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"></iframe>`;
-    }
-
     return null; 
 }

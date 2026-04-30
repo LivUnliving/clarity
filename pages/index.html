@@ -11,49 +11,14 @@
     <nav class="cabecalho">
         <img id="logo" src="../assets/img/logo (1).png" alt="Logo Clarity">
         
-        <!-- Grupo da Direita: Configurações + Foto -->
         <div class="nav-right">
             <button id="configuracoes" onclick="abrirModal()">⚙️ Configurações</button>
             <img id="conta" src="../assets/img/user.png" alt="Perfil do Usuário">
         </div>
     </nav>
 
-    <dialog id="modal">
-    <div class="modal-content">
-        <!-- O botão de fechar agora é apenas um ícone pequeno no canto -->
-        <button id="btn-fechar-modal" onclick="fecharModal()" title="Fechar">
-            <img src="../assets/img/x.png" alt="Fechar" class="icone-fechar">
-        </button>
-        
-        <div class="config-secao">
-            <h3>Timer</h3>
-            <div class="inputs-lado-a-lado">
-                <div class="input-grupo">
-                    <label for="pomodoroInput">Pomodoro</label>
-                    <input type="number" id="pomodoroInput" value="25" min="1" max="999">
-                </div>
-                <div class="input-grupo">
-                    <label for="pausaInput">Pausa</label>
-                    <input type="number" id="pausaInput" value="5" min="1" max="999">
-                </div>
-            </div>
-            <button class="btn-salvar" onclick="salvar()">Salvar Tempo</button>
-
-            <hr class="divisor-modal">
-
-            <div class="config-secao">
-                <h3>Trilha Sonora</h3>
-                <form id="form-link">
-                    <label for="urlUsuario">Link da Playlist ou Vídeo</label>
-                    <input type="url" id="urlUsuario" placeholder="Cole o link (Spotify, YT, Apple)" required>
-                    <button class="btn-salvar" type="submit">Carregar Música</button>
-                </form>
-            </div>
-        </div> 
-    </div>   
-    </dialog>
-
     <main class="layout-principal">
+        
         <section class="card pomodoro-card">
             <div class="botoes-topo">
                 <button id="btnFoco" class="btn-tipo ativo" onclick="mudarModo('foco')">Pomodoro</button>
@@ -67,7 +32,7 @@
             <div class="card tarefas-container">
                 <h2>Tarefas</h2>
                 <div id="lista-tarefas" class="scroll-area"></div>
-                <button id="btn-nova-tarefa">
+                <button type="button" id="btn-nova-tarefa">
                     <span>+</span> Criar nova tarefa
                 </button>
             </div>
@@ -112,9 +77,7 @@
         </div>   
     </dialog>
 
-    <script src="../js/modules/ui.js"></script> 
-    <script src="../js/modules/logic.js"></script> 
-    <script src="../js/script.js"></script>
-    <script type="module" src="../js/main.js"></script>
+    <script src="../js/modules/script.js"></script>
+    <script type="module" src="../js/modules/main.js"></script>
 </body>
 </html>
