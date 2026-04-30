@@ -3,13 +3,13 @@
 *Clarity* é uma aplicação web voltada para foco e produtividade baseada na técnica Pomodoro.
 O sistema permite que usuários definam períodos de foco e pausa, acompanhem um temporizador regressivo em tempo real, organizem tarefas e integrem música para melhorar a concentração durante as sessões. O projeto é destinado a estudantes, profissionais e qualquer pessoa que deseje melhorar sua gestão de tempo e produtividade em ambientes digitais.
 
-## Tecnologias Utilizadas
+# Tecnologias Utilizadas
 
 * *HTML5* — Estrutura da aplicação
 * *CSS3* — Estilização e responsividade
 * *JavaScript (ES6+)* — Lógica da aplicação
 
-## Pré-requisitos
+# Pré-requisitos
 
 Para executar o projeto, você precisa apenas de:
 
@@ -17,7 +17,7 @@ Para executar o projeto, você precisa apenas de:
 * Editor de código (recomendado: VS Code)
 * (Opcional) Extensão Live Server
 
-## Como Instalar
+# Como Instalar
 
 1. Clone o repositório:
 
@@ -32,15 +32,15 @@ bash
 
 
 
-## Como Executar
+# Como Executar
 
 Abra diretamente no navegador: Dê duplo clique no arquivo index.html
 
-## Scripts Disponíveis
+# Scripts Disponíveis
 
 Este projeto não utiliza gerenciadores de pacotes (como npm), portanto não possui scripts automatizados.
 
-## Estrutura de Pastas
+# Estrutura de Pastas
 
 plaintext
 assets/
@@ -62,16 +62,16 @@ pages/
 
 
 
-## Como Contribuir
+# Como Contribuir
 
-### Estrutura de Branches
+## Estrutura de Branches
 
 * main → versão estável
 * dev → desenvolvimento geral
 * feature/nome-da-feature → novas funcionalidades
 * fix/nome-do-bug → correções
 
-### Padrão de Commit
+## Padrão de Commit
 
 Utilizar commits semânticos:
 
@@ -82,7 +82,7 @@ style: ajusta layout
 refactor: reorganiza estrutura de código
 
 
-### Pull Requests
+## Pull Requests
 
 * Criar PR para dev
 * Descrever claramente o que foi feito
