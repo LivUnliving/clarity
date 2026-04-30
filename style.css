@@ -1,78 +1,79 @@
 /* =========================================
-   1. RESET E BODY (Cola o topo nas bordas)
+   1. VARIÁVEIS (CENTRAL DE CORES)
+   ========================================= */
+:root {
+    --bg-deep: #0B001A;
+    --bg-card: #0d0d17;
+    --primary: #16086C;
+    --secondary: #a855f7;
+    --accent: #B298FE;
+    --text-main: #ffffff;
+    --text-dark: #42354e;
+    --transition: 0.3s ease;
+}
+
+/* =========================================
+   2. RESET E PADRÕES
    ========================================= */
 body {
-    margin: 0; /* Remove a borda branca padrão do navegador */
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #0B001A; /* Cor de fundo escurecida para destacar os cards */
-    color: white;
+    background-color: var(--bg-deep);
+    color: var(--text-main);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* =========================================
-   2. HEADER (NAV) AJUSTADO
+   3. HEADER (NAV)
    ========================================= */
 nav {
     width: 100%;
-    height: 100px; /* Reduzi levemente de 144px para ficar mais moderno, mas pode voltar se quiser */
-    background-color: #16086C;
-    display: flex; /* Corrigido de "flexbox" */
-    flex-direction: row;
-    justify-content: space-between; /* Empurra a logo para a esquerda e ícones para a direita */
-    align-items: center; /* Centraliza verticalmente. Corrigido de "align-content" */
-    padding: 0 40px; /* Dá um respiro nas laterais */
-    box-sizing: border-box; /* Garante que o padding não faça a barra vazar da tela */
+    height: 100px;
+    background-color: var(--primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    box-sizing: border-box;
 }
 
-#logo {
-    width: 234px;
-    height: 40px;
-    object-fit: contain;
-}
+#logo { width: 234px; height: 40px; object-fit: contain; }
+
+.nav-right { display: flex; align-items: center; gap: 20px; }
 
 #configuracoes {
-    color: #ffffff;
+    color: var(--text-main);
     background-color: #0B004D;
     border: none;
     padding: 10px 20px;
     border-radius: 10px;
     cursor: pointer;
     font-weight: bold;
-    transition: 0.3s;
+    transition: var(--transition);
 }
 
-#configuracoes:hover {
-    background-color: #a855f7;
-}
+#configuracoes:hover { background-color: var(--secondary); }
 
-#conta {
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-}
+#conta { width: 50px; height: 50px; cursor: pointer; border-radius: 50%; }
 
 /* =========================================
-   3. LAYOUT PRINCIPAL (O GRID DA IMAGEM)
+   4. LAYOUT PRINCIPAL E CARDS
    ========================================= */
 .layout-principal {
     display: grid;
-    grid-template-columns: 4fr 6fr; /* Divide a tela: Esquerda (Pomodoro) e Direita (Tarefas/Música) */
+    grid-template-columns: 4fr 6fr;
     gap: 30px;
     padding: 40px;
     max-width: 1200px;
-    margin: 0 auto; /* Centraliza o conteúdo na tela grande */
+    margin: 0 auto;
 }
 
-.coluna-direita {
-    display: flex;
-    flex-direction: column;
-    gap: 20px; /* Espaço entre as tarefas e a música */
-}
+.coluna-direita { display: flex; flex-direction: column; gap: 20px; }
 
-/* O estilo base dos cards (Pomodoro, Tarefas e Música) */
+/* Agrupamento de Cards */
 .pomodoro-card, .musica-card, .tarefas-container {
-    background-color: #0d0d17; /* A sua cor base */
+    background-color: var(--bg-card);
     border-radius: 20px;
     padding: 30px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.3);
@@ -83,263 +84,209 @@ nav {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 400px;
+    min-height: 500px;
 }
 
 /* =========================================
-   4. SEU CÓDIGO INTACTO DAS TAREFAS
+   5. CRONÔMETRO (TIMER)
    ========================================= */
-.tarefas-container {
-    width: 100%; /* Ajustado para preencher a coluna inteira do Grid (removido o 350px) */
-    box-sizing: border-box;
+.botoes-topo {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 50px;
+    width: 100%;
 }
 
-h2 {
+.btn-tipo {
+    all: unset;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 45px !important;
     font-size: 1.2rem;
-    margin-bottom: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: var(--transition);
 }
 
+.btn-tipo.ativo { background-color: var(--primary) !important; opacity: 1 !important; }
+.btn-tipo:not(.ativo) { background-color: transparent !important; opacity: 0.5 !important; }
+
+#timer {
+    font-size: 9rem !important;
+    font-weight: 900;
+    margin: 40px 0 !important;
+    text-align: center;
+    line-height: 1;
+}
+
+#btn-play {
+    all: unset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 400px;
+    background-color: var(--accent) !important;
+    color: #0d0d17 !important;
+    padding: 28px 0 !important;
+    border-radius: 25px;
+    font-size: 2.2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 30px auto;
+    transition: var(--transition);
+}
+
+#btn-play:hover { background-color: var(--secondary) !important; color: white !important; }
+
+/* =========================================
+   6. TAREFAS (UNIFICADO)
+   ========================================= */
 #lista-tarefas {
-    max-height: 140px;
-    overflow-y: auto; 
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 10px;
     margin-bottom: 15px;
-    padding-right: 5px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) var(--bg-card);
 }
 
-#lista-tarefas::-webkit-scrollbar { 
-    width: 5px; 
-}
-
-#lista-tarefas::-webkit-scrollbar-thumb {
-    background: #4b4b7a;
-    border-radius: 10px;
+/* Scrollbar Custom */
+#lista-tarefas::-webkit-scrollbar { width: 8px; }
+#lista-tarefas::-webkit-scrollbar-track { background: var(--bg-card); border-radius: 10px; }
+#lista-tarefas::-webkit-scrollbar-thumb { 
+    background: var(--primary); 
+    border-radius: 10px; 
+    border: 2px solid var(--bg-card); 
 }
 
 .tarefa-item {
     background-color: #16162a;
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 15px;
-    border-radius: 15px;
+    gap: 15px;
+    padding: 12px 20px;
+    border-radius: 12px;
     margin-bottom: 10px;
-    transition: 0.3s;
+    transition: var(--transition);
+    border: 1px solid transparent;
 }
 
-.tarefa-item:hover { 
-    background-color: #1e1e3d; 
-}
+.tarefa-item:hover { border-color: var(--secondary); background-color: #1e1e3d; }
 
-input[type="checkbox"] {
+.check-concluir {
     appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #a855f7;
-    border-radius: 50%;
+    width: 22px; height: 22px;
+    border: 2px solid var(--secondary);
+    border-radius: 6px;
     cursor: pointer;
-    position: relative;
+    transition: var(--transition);
 }
 
-input[type="checkbox"]:checked {
-     background-color: #a855f7; 
-}
-
-.texto-tarefa {
-    flex: 1;
-    font-size: 0.95rem;
-    outline: none;
-    border: none;
-    background: transparent;
-    color: white;
-}
-
-.texto-tarefa:focus {
-    outline: none;
-    background-color: rgba(168, 85, 247, 0.1);
-    color: #d8b4fe;
-    border-radius: 4px;
-}
-
-.texto-tarefa::selection {
-    background-color: #a855f7;
-    color: white;
+.check-concluir:checked {
+    background: var(--secondary) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E") no-repeat center;
+    background-size: contain;
 }
 
 #btn-nova-tarefa {
-    width: 100%;
-    background: transparent;
-    border: 2px dashed #252545;
-    color: #a855f7;
-    padding: 12px;
-    border-radius: 15px;
-    cursor: pointer;
-    font-weight: bold;
+    all: unset;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    transition: 0.3s;
-}
-
-#btn-nova-tarefa:hover {
-    border-color: #a855f7;
-    background-color: rgba(168, 85, 247, 0.05);
+    gap: 10px;
+    width: 100%;
+    margin-top: 15px;
+    padding: 15px;
+    border: 2px dashed var(--primary);
+    border-radius: 15px;
+    color: var(--accent);
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+    box-sizing: border-box;
 }
 
 /* =========================================
-   REGRAS DO MODAL (Com Imagem x.png)
+   7. MODAL (CONFIGURAÇÕES)
    ========================================= */
-
-/* Fundo do modal unificado (usando suas cores escuras) */
 dialog {
-    background-color: #efe1fb; /* Sua cor base escura */
-    color: rgb(129, 115, 136);
-    font-weight: bold;
-    border: 2px solid #252545; /* Borda sutil */
+    background-color: #efe1fb;
+    border: none;
     border-radius: 20px;
-    padding: 30px;
+    padding: 35px;
     width: 90%;
-    max-width: 450px;
-    margin: auto;
-    font-family: inherit;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-    box-sizing: border-box; /* Garante que o padding não faça a caixa vazar */
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* Fundo escuro atrás do modal aberto */
-dialog::backdrop {
-    background-color: rgba(0, 0, 0, 0.8);
+dialog::backdrop { background-color: rgba(0, 0, 0, 0.7); }
+
+#btn-fechar-modal {
+    position: absolute; top: -10px; right: -10px;
+    background: transparent; border: none; cursor: pointer;
 }
 
-/* Transforma o conteúdo do modal numa âncora para o botão X */
-.modal-content {
-    position: relative; 
-    display: flex;
-    flex-direction: column;
-}
-
-.config-secao h3 {
-    font-size: 25px;
-    color: #110022; /* Seu lilás base */
-    margin-bottom: 10px;
-}
+.icone-fechar { width: 20px; height: 20px; object-fit: contain; }
 
 dialog input {
     width: 100%;
     padding: 12px;
-    background-color: #d5c3f5; /* Sua cor de item escura */
+    border: 1.5px solid #d5c3f5;
     border-radius: 10px;
-    color: rgb(66, 53, 78);
-    font-weight: bold;
     box-sizing: border-box;
-    border: none;
 }
 
-dialog button.btn-salvar {
+.btn-salvar {
     width: 100%;
-    padding: 12px;
-    margin-top: 15px; /* Substituindo style inline */
-    background-color: #a855f7; /* Seu roxo base */
+    background-color: var(--secondary);
     color: white;
     border: none;
+    padding: 12px;
     border-radius: 10px;
-    cursor: pointer;
     font-weight: bold;
-    transition: 0.3s;
+    cursor: pointer;
+    margin-top: 15px;
 }
 
-dialog button.btn-salvar:hover {
-    background-color: #8b3dd9;
-}
-
-/* =========================================
-   O BOTÃO DE FECHAR (Com imagem x.png)
-   ========================================= */
-
+/* Ajuste do botão X para o canto interno direito */
 #btn-fechar-modal {
     position: absolute;
-    top: -15px; /* Sobe um pouquinho */
-    right: -15px; /* Move para a direita */
-    width: 35px; /* Tamanho exato para ficar quadrado */
-    height: 35px;
-    margin: 0;
-    padding: 0;
+    top: 15px;      /* Valor positivo para descer um pouco */
+    right: 15px;    /* Valor positivo para afastar da borda direita */
     background: transparent;
-    border: none; /* Garante que não tenha borda */
-    cursor: pointer;
-    border-radius: 50%; /* Faz o fundo do hover ser redondinho */
-    transition: background-color 0.3s;
-    
-    display: flex; /* Centraliza a imagem lá dentro */
-    align-items: center;
-    justify-content: center;
-}
-
-#btn-fechar-modal:hover {
-    background-color: rgba(168, 85, 247, 0.1); /* Fundo roxo bem suave no hover, sem mudar sua identidade visual */
-}
-
-/* A Imagem interna (O X real) */
-.icone-fechar {
-    width: 18px; /* Defina o tamanho ideal para o seu ícone */
-    height: 18px;
-    object-fit: contain; /* Garante que a imagem não estique */
-    
-    /* Se a sua imagem x.png for preta, você pode descomentar a linha abaixo para inverter para branco: */
-    /* filter: invert(1); */
-}
-
-/* =========================================
-   ELEMENTOS DE LIMPEZA GERAL
-   ========================================= */
-
-/* A linha divisória que antes tinha CSS no HTML */
-.divisor-modal {
-    margin: 25px 0;
     border: none;
-    border-top: 1px solid #252545; /* Usa a cor exata da borda do modal */
-}
-
-/* =========================================
-   ALINHAMENTO DOS INPUTS LADO A LADO
-   ========================================= */
-.inputs-lado-a-lado {
-    display: flex;
-    gap: 15px; /* Espaço entre a caixa do Pomodoro e da Pausa */
-    width: 100%;
-}
-
-.input-grupo {
-    display: flex;
-    flex-direction: column;
-    flex: 1; /* Faz as duas caixas ocuparem exatamente 50% do espaço cada */
-    gap: 5px; /* Espacinho entre a palavra "Pomodoro" e a caixa de digitar */
-}
-
-/* Garante que a palavra "Pomodoro" e "Pausa" fiquem com um tamanho legal */
-dialog label {
-    font-size: 0.9rem;
-    color: rgb(129, 115, 136); /* A mesma cor do seu texto original */
-}
-
-/* =========================================
-   CUSTOMIZAÇÃO DAS SETINHAS NUMÉRICAS
-   ========================================= */
-
-/* Força as setinhas (spinners) a ficarem sempre visíveis e sem fundo */
-dialog input[type="number"]::-webkit-inner-spin-button,
-dialog input[type="number"]::-webkit-outer-spin-button {
-    opacity: 1; /* 100% visível sempre */
-    background: transparent; /* Remove o quadrado de fundo */
     cursor: pointer;
-    
-    /* DICA: Os navegadores não deixam pintar a setinha com a regra "color". 
-       Para deixá-la lilás, aplicamos um filtro fotográfico que transforma 
-       o cinza padrão no tom de roxo/lilás do seu projeto! */
-    filter: invert(40%) sepia(80%) saturate(3000%) hue-rotate(240deg) brightness(90%);
+    padding: 0;
+    z-index: 10;    /* Garante que ele fique por cima de tudo */
+    line-height: 0; /* Remove espaços extras de texto */
 }
 
-/* Regra extra para o Firefox exibir as setinhas e respeitar o visual */
-dialog input[type="number"] {
-    -moz-appearance: auto;
+.icone-fechar {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    opacity: 0.7;   /* Deixa ele um pouco mais suave como na imagem */
+    transition: var(--transition);
+}
+
+#btn-fechar-modal:hover .icone-fechar {
+    opacity: 1;     /* Brilha mais ao passar o mouse */
+    transform: scale(1.1);
+}
+
+/* Garante que o modal permita ver o botão no canto */
+dialog {
+    overflow: visible; /* Permite que elementos posicionados apareçam corretamente */
+    background-color: #efe1fb;
+    border: none;
+    border-radius: 20px;
+    padding: 35px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
