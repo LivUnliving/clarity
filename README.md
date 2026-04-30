@@ -3,7 +3,7 @@
 *Clarity* é uma aplicação web voltada para foco e produtividade baseada na técnica Pomodoro.
 O sistema permite que usuários definam períodos de foco e pausa, acompanhem um temporizador regressivo em tempo real, organizem tarefas e integrem música para melhorar a concentração durante as sessões. O projeto é destinado a estudantes, profissionais e qualquer pessoa que deseje melhorar sua gestão de tempo e produtividade em ambientes digitais.
 
-#URL para teste
+URL para teste
 https://clarity-eta-six.vercel.app
 
 # Tecnologias Utilizadas
