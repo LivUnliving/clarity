@@ -204,10 +204,6 @@ dialog {
 
 dialog::backdrop { background-color: rgba(0, 0, 0, 0.7); }
 
-#btn-fechar-modal {
-    position: absolute; top: -10px; right: -10px;
-    background: transparent; border: none; cursor: pointer;
-}
 
 .icone-fechar { width: 20px; height: 20px; object-fit: contain; }
 
@@ -265,4 +261,152 @@ dialog {
     width: 90%;
     max-width: 400px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.inputs-lado-a-lado {
+    display: flex;
+    gap: 15px;
+}
+
+@media (max-width: 768px) {
+    
+    nav {
+        padding: 0 20px;
+        height: 80px;
+    }
+    #logo { width: 150px; }
+    .nav-right { gap: 10px; }
+    #configuracoes {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    #conta {
+        width: 40px;
+        height: 40px;
+    }
+
+    .layout-principal {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .pomodoro-card {
+        min-height: 400px;
+        padding: 20px;
+    }
+    
+    .botoes-topo {
+        gap: 15px; 
+        margin-bottom: 30px;
+    }
+    
+    .btn-tipo {
+        padding: 12px 20px !important;
+        font-size: 1rem;
+    }
+    
+    #timer {
+        font-size: 80px; 
+        margin: 20px 0;
+    }
+    
+    #btn-play {
+        padding: 20px 0 !important;
+        font-size: 1.5rem;
+    }
+
+    dialog {
+        padding: 25px;
+        width: 95%;
+    }
+    
+    .inputs-lado-a-lado {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 950px) and (orientation: landscape) {
+    
+    nav {
+        height: 50px;
+        padding: 0 15px;
+    }
+
+    #logo {
+        width: 100px;
+    }
+
+    #configuracoes {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+
+    #conta {
+        width: 30px;
+        height: 30px;
+    }
+
+    .layout-principal {
+        grid-template-columns: 1fr 1fr; /* Volta a ficar um do lado do outro */
+        padding: 10px;
+        gap: 15px;
+        align-items: start;
+    }
+
+    .pomodoro-card, .tarefas-container, .musica-card { 
+        padding: 15px; 
+    }
+
+    .pomodoro-card {
+        min-height: auto;
+    }
+
+    .botoes-topo {
+        margin-bottom: 10px;
+        gap: 10px;
+    }
+
+    .btn-tipo {
+        padding: 8px 15px !important;
+        font-size: 0.9rem;
+    }
+    
+    #timer {
+        font-size: 55px;
+        margin: 5px 0;
+    }
+    
+    #btn-play { 
+        padding: 10px 0 !important; 
+        font-size: 1.1rem;
+        margin: 5px auto 0;
+    }
+
+    .coluna-direita { 
+        gap: 10px; 
+    }
+
+    .tarefas-container h2 { 
+        margin-top: 0; 
+        margin-bottom: 10px; 
+        font-size: 1.1rem; 
+    }
+
+    #lista-tarefas { 
+        max-height: 60px;
+        margin-bottom: 10px;
+    }
+    #btn-nova-tarefa {
+        padding: 8px;
+        margin-top: 0;
+        font-size: 0.9rem;
+    }
+
+    .musica-card h3 {
+        margin: 0 0 5px 0;
+        font-size: 1.1rem;
+    }
 }
